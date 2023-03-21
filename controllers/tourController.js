@@ -1,6 +1,6 @@
 const AppError = require('../utils/appError')
 const Tour = require('./../models/tourModel')
-const APTFeatures = require('./../utils/APIFeatures')
+const APIFeatures = require('./../utils/APIFeatures')
 const catchAsync = require('./../utils/catchAsync')
 
 exports.aliasTopTours = (req, res, next) => {
@@ -12,7 +12,7 @@ exports.aliasTopTours = (req, res, next) => {
 }
 
 exports.getAllTours = catchAsync(async (req, res, next) => {
-  const features = new APTFeatures(Tour.find(), req.query)
+  const features = new APIFeatures(Tour.find(), req.query)
     .filter()
     .sort()
     .limitFields()
